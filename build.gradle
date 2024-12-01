@@ -18,10 +18,20 @@ repositories {
 }
 
 dependencies {
+    // Dependencia para Spring Web
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Dependencia para Spring Data JPA
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // Dependencia para H2 Database
+    runtimeOnly 'com.h2database:h2'
+
     implementation 'org.springframework.boot:spring-boot-starter'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
+
 
 tasks.named('test') {
     useJUnitPlatform()
