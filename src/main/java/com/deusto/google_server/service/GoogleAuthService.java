@@ -15,6 +15,7 @@ public class GoogleAuthService {
     private UserRepository userRepository;
 
     public boolean authenticate(GoogleAuthRequestDTO request) {
+        System.out.println("Authentication requested: email = " + request.getEmail());
         // Buscar al usuario por email
         Optional<User> userOpt = userRepository.findByEmail(request.getEmail());
 
@@ -33,6 +34,9 @@ public class GoogleAuthService {
 
     // Registrar un nuevo usuario
     public String register(User user) {
+        userRepository.findByEmail(user.getEmail()).ifPresent(u -> {
+            throw new IllegalArgumentException("User already exists: " + u.getEmail());
+        });
         userRepository.save(user);
         return "User registered successfully: " + user.getEmail();
     }
