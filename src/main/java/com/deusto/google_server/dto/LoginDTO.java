@@ -1,13 +1,13 @@
 package com.deusto.google_server.dto;
 
-public class GoogleAuthRequestDTO {
+public class LoginDTO {
     private String email;
     private String password;
 
-    public GoogleAuthRequestDTO() {
+    public LoginDTO() {
     }
 
-    public GoogleAuthRequestDTO(String email, String password) {
+    public LoginDTO(String email, String password) {
         this.email = email;
         this.password = password;
     }

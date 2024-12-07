@@ -1,6 +1,6 @@
 package com.deusto.google_server.facade;
 
-import com.deusto.google_server.dto.GoogleAuthRequestDTO;
+import com.deusto.google_server.dto.LoginDTO;
 import com.deusto.google_server.entity.User;
 import com.deusto.google_server.service.GoogleAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ public class GoogleAuthController {
     private GoogleAuthService authService;
 
     @PostMapping("/login")
-    public ResponseEntity<Boolean> login(@RequestBody GoogleAuthRequestDTO request) {
+    public ResponseEntity<Boolean> login(@RequestBody LoginDTO request) {
         try {
             boolean response = authService.authenticate(request);
             return ResponseEntity.ok(response); // Devuelve true si la autenticación es exitosa

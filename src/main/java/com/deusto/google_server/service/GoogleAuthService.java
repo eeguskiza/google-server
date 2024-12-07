@@ -1,7 +1,7 @@
 package com.deusto.google_server.service;
 
 import com.deusto.google_server.entity.User;
-import com.deusto.google_server.dto.GoogleAuthRequestDTO;
+import com.deusto.google_server.dto.LoginDTO;
 import com.deusto.google_server.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ public class GoogleAuthService {
     @Autowired
     private UserRepository userRepository;
 
-    public boolean authenticate(GoogleAuthRequestDTO request) {
+    public boolean authenticate(LoginDTO request) {
         System.out.println("Authentication requested: email = " + request.getEmail());
         // Buscar al usuario por email
         Optional<User> userOpt = userRepository.findByEmail(request.getEmail());
